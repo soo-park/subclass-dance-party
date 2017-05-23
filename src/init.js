@@ -32,11 +32,8 @@ $(document).ready(function() {
     window.dancers.push(dancer);
   });
 
-  $('.lineUpButton').on('click', function(event) {
+  $('#lineUp').on('click', function(event) {
     // var test = window.dancers[0];
-
-    var buttonFunctionName = $(this).data('button-function-name'); // lineup
-
     for (let i = 0; i < window.dancers.length; i++) {
       window.dancers[i].$node.css({top: $("body").height()/2});
     }

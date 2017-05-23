@@ -9,9 +9,14 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
+
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
+}
+.moveDancerButton{ 
+  padding:5px 12px;
+  float:left;
 }
 .topbar{
   height:32px;
@@ -24,10 +29,4 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
-}
-.moveDancerbutton{
-  color: 'green';
-  padding:5px 12px;
-  float:left;
-  !important;
 }
