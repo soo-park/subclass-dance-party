@@ -12,8 +12,16 @@ BouncyDancer.prototype.step = function() {
   this.oldStep = Dancer.prototype.step;
   this.oldStep();
   
-  this.$node.animate({
+  // this.$node.animate({
+  //   left: $("body").width() * Math.random() - 50,
+  //   top: $("body").height() * Math.random() - 50
+  // }, 3000);
+  this.$node.position({
     left: $("body").width() * Math.random() - 50,
     top: $("body").height() * Math.random() - 50
-  }, 3000);
+  });
+  this.$node.position({
+    left: $("body").width() * Math.random(),
+    top: $("body").height() * Math.random()
+  });
 };
