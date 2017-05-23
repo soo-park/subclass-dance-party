@@ -5,6 +5,7 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
   // so we must keep a copy of the old version of this function
   
    // this need to equal the blickyDancer instaance
+  
 
 };
 
@@ -14,9 +15,11 @@ BlinkyDancer.prototype.constructor = BlinkyDancer;
 BlinkyDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
   // this.oldStep();
-  
+
+
+  console.log(this, 'left side');
   this.oldStep = Dancer.prototype.step;
-  this.oldStep();
+  this.oldStep(); 
   
   this.$node.toggle();
   
