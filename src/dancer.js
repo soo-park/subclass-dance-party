@@ -6,10 +6,10 @@ var Dancer = function(top, left, timeBetweenSteps) {
 };
 
 Dancer.prototype.step = function() {
-  var currentDancer = this;
-  
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
+
   // POSSIBLE ALTERNATIVE FOR SETTIMEOUT 
+  // var currentDancer = this;
   // setTimeout(function() {
   //   console.log(currentDancer, 'right side'); 
   //   currentDancer.step();
