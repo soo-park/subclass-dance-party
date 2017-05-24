@@ -5,7 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
-  background-image: url("./static/background.jpg");
+  background-image: url("./static/background.png");
   background-size: cover;
   background-position: center;
 }

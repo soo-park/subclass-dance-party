@@ -19,12 +19,8 @@ $(document).ready(function() {
     
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-
-    // make a dancer with a random position
-    
-    var characterFileNames = ['stan.png', 'kyle.png', 'cartman.png', 'kenny.png'];
-    var randomCharacterInt = Math.floor(Math.random() * characterFileNames.length);
-    var randomCharacter = characterFileNames[randomCharacterInt];
+  
+    var cardNumber = Math.floor(Math.random() * 8) + 1;
 
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
@@ -33,9 +29,7 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
 
-    // add an image to our span
-    dancer.$node.html('<img src ="./static/' + randomCharacter + '"/>');
-
+    dancer.$node.html('<img class="dancerImage "src ="./static/card' + cardNumber + '.png"/>');
     window.dancers.push(dancer);
   });
 
@@ -45,6 +39,11 @@ $(document).ready(function() {
       window.dancers[i].$node.css({top: $("body").height()/2});
     }
   });
+
+  $('.dancerImage').on('click', function(event) {
+    console.log('yay');
+    $(this).prev().remove();
+    $(this).remove();
+  });
+
 });
-
-
