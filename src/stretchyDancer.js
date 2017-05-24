@@ -1,4 +1,5 @@
 var StretchyDancer = function(top, left, timeBetweenSteps) {
+  
   var timeBetweenSteps = 5;  
   Dancer.call(this, top, left, timeBetweenSteps);
 

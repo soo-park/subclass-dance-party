@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   window.dancers = [];
 
@@ -30,12 +31,39 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
     
     dancer.$node.mouseover(function() {
-      $(this).prev().remove();
+      // $(this).prev().remove();
       $(this).remove();
+      window.dancers.splice(window.dancers.indexOf(this));
     });
-
+  
     dancer.$node.html('<img class="dancerImage "src ="./static/card' + cardNumber + '.png"/>');
     window.dancers.push(dancer);
+  });
+
+  $('#closestDies').on('click', function(){
+    var shortestDistance = $("body").width();
+    var objectsWithShortestDistance = [];
+    for (let i = 0; i < window.dancers.length; i++) {
+      for (let j = 0; j < window.dancers.length; j++) {
+        if (i !== j) {
+          var cardPosY1 = window.dancers[i].$node.position().top;
+          var cardPosX1 = window.dancers[i].$node.position().left;
+          var cardPosY2 = window.dancers[j].$node.position().top;
+          var cardPosX2 = window.dancers[j].$node.position().left;
+          
+          var distance = Math.sqrt(Math.pow((cardPosX2 - cardPosX1), 2) + Math.pow((cardPosY2 - cardPosY1), 2));
+          if (distance < shortestDistance) {
+            shortestDistance = distance;
+            objectsWithShortestDistance = [window.dancers[i], window.dancers[j]];
+          }
+        }
+      }
+    }
+    
+    objectsWithShortestDistance.forEach(dancer => {
+      dancer.$node.remove();
+      window.dancers.splice(window.dancers.indexOf(dancer));
+    });
   });
 
   $('#lineUp').on('click', function(event) {
@@ -43,20 +71,4 @@ $(document).ready(function() {
       window.dancers[i].$node.css({top: $("body").height()/2});
     }
   });
-
-  // $("body").mouseover(function() {  
-  //   console.log('abc');
-  // });
-  
-  
-  
-      
-  $('span').mouseover(function() {
-    console.log($('.dancerImage'));
-    console.log('yay');
-    // $(this).prev().remove();
-    // $(this).remove();
-  });
-
-
 });
