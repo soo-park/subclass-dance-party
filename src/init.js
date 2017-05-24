@@ -35,8 +35,9 @@ $(document).ready(function() {
       $(this).remove();
       window.dancers.splice(window.dancers.indexOf(this));
     });
-  
-    dancer.$node.html('<img class="dancerImage "src ="./static/card' + cardNumber + '.png"/>');
+    
+    dancer.$node.addClass(dancerMakerFunctionName);
+    dancer.$node.html('<img class="dancerImage" src ="./static/card' + cardNumber + '.png"/>');
     window.dancers.push(dancer);
   });
 
