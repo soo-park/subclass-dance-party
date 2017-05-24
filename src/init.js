@@ -69,7 +69,7 @@ $(document).ready(function() {
 
   $('#lineUp').on('click', function(event) {
     for (let i = 0; i < window.dancers.length; i++) {
-      window.dancers[i].$node.css({top: $("body").height()/2});
+      window.dancers[i].$node.css({top: 50});
     }
   });
 });
