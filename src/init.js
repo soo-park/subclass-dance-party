@@ -28,22 +28,35 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    
+    dancer.$node.mouseover(function() {
+      $(this).prev().remove();
+      $(this).remove();
+    });
 
     dancer.$node.html('<img class="dancerImage "src ="./static/card' + cardNumber + '.png"/>');
     window.dancers.push(dancer);
   });
 
   $('#lineUp').on('click', function(event) {
-    // var test = window.dancers[0];
     for (let i = 0; i < window.dancers.length; i++) {
       window.dancers[i].$node.css({top: $("body").height()/2});
     }
   });
 
-  $('.dancerImage').on('click', function(event) {
+  // $("body").mouseover(function() {  
+  //   console.log('abc');
+  // });
+  
+  
+  
+      
+  $('span').mouseover(function() {
+    console.log($('.dancerImage'));
     console.log('yay');
-    $(this).prev().remove();
-    $(this).remove();
+    // $(this).prev().remove();
+    // $(this).remove();
   });
+
 
 });
